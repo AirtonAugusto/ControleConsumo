@@ -1,0 +1,32 @@
+@model ControleConsumo.Models.Consumo
+
+@{
+    ViewData["Title"] = "Detalhes do consumo";
+}
+
+<h1>Detalhes do consumo</h1>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">Veículo</dt>
+    <dd class="col-sm-9">@Model.Veiculo?.Nome</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Descricao)</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Data)</dt>
+    <dd class="col-sm-9">@Model.Data.ToString("dd/MM/yyyy")</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Valor)</dt>
+    <dd class="col-sm-9">@Model.Valor.ToString("C")</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Km)</dt>
+    <dd class="col-sm-9">@Model.Km</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Tipo)</dt>
+    <dd class="col-sm-9">@Model.Tipo</dd>
+</dl>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar para a lista</a>
+</div>

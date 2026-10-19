@@ -1,7 +1,13 @@
+using System.Globalization;
 using ControleConsumo.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Padrão brasileiro (vírgula decimal, R$, datas dd/MM/yyyy)
+var culturaBr = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentCulture = culturaBr;
+CultureInfo.DefaultThreadCurrentUICulture = culturaBr;
 
 // 1) SERVIÇOS: o que o sistema tem disponível
 builder.Services.AddControllersWithViews();
