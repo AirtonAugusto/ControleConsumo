@@ -1,53 +1,48 @@
 @model IEnumerable<ControleConsumo.Models.Veiculo>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Veículos";
 }
 
-<h1>Index</h1>
+<h1>Veículos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Novo veículo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Placa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnoFabricacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnoModelo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Placa)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.AnoFabricacao)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.AnoModelo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@if (!Model.Any())
+{
+    <p>Nenhum veículo cadastrado ainda.</p>
 }
-    </tbody>
-</table>
+else
+{
+    <p class="text-muted">Clique no nome do veículo para ver o relatório de consumo.</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Nome)</th>
+                <th>@Html.DisplayNameFor(m => m.Placa)</th>
+                <th>@Html.DisplayNameFor(m => m.AnoFabricacao)</th>
+                <th>@Html.DisplayNameFor(m => m.AnoModelo)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a asp-action="Relatorio" asp-route-id="@item.Id">@item.Nome</a></td>
+                    <td>@item.Placa</td>
+                    <td>@item.AnoFabricacao</td>
+                    <td>@item.AnoModelo</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

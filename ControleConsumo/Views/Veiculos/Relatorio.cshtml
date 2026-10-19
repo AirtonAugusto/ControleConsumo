@@ -1,0 +1,49 @@
+@model IEnumerable<ControleConsumo.Models.Consumo>
+
+@{
+    var veiculo = (ControleConsumo.Models.Veiculo)ViewBag.Veiculo;
+    var total = (decimal)ViewBag.Total;
+    ViewData["Title"] = "Relatório - " + veiculo.Nome;
+}
+
+<h1>Relatório de consumo</h1>
+<h4 class="text-muted">@veiculo.Nome · placa @veiculo.Placa</h4>
+
+<div class="alert alert-info mt-3">
+    <strong>Total gasto:</strong> @total.ToString("C")
+    &nbsp;|&nbsp;
+    <strong>Lançamentos:</strong> @Model.Count()
+</div>
+
+@if (!Model.Any())
+{
+    <p>Nenhum consumo cadastrado para este veículo.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Combustível</th>
+                <th>Km</th>
+                <th class="text-end">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Descricao</td>
+                    <td>@item.Tipo</td>
+                    <td>@item.Km</td>
+                    <td class="text-end">@item.Valor.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-action="Index">Voltar para veículos</a>

@@ -6,9 +6,10 @@ namespace ControleConsumo.Controllers
 {
     public class HomeController : Controller
     {
+        // A página inicial leva direto para a lista de veículos (aula 16)
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Veiculos");
         }
 
         public IActionResult Privacy()

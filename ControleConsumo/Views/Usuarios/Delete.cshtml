@@ -1,0 +1,22 @@
+@model ControleConsumo.Models.Usuario
+
+@{
+    ViewData["Title"] = "Excluir usuário";
+}
+
+<h1>Excluir usuário</h1>
+<h4 class="text-danger">Tem certeza que deseja excluir este usuário?</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Nome)</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Perfil)</dt>
+    <dd class="col-sm-9">@Model.Perfil</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Excluir" class="btn btn-danger" /> |
+    <a asp-action="Index">Voltar para a lista</a>
+</form>

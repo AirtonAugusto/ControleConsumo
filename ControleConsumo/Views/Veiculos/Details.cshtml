@@ -1,45 +1,27 @@
 @model ControleConsumo.Models.Veiculo
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do veículo";
 }
 
-<h1>Details</h1>
+<h1>Detalhes do veículo</h1>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Nome)</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Placa)</dt>
+    <dd class="col-sm-9">@Model.Placa</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.AnoFabricacao)</dt>
+    <dd class="col-sm-9">@Model.AnoFabricacao</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.AnoModelo)</dt>
+    <dd class="col-sm-9">@Model.AnoModelo</dd>
+</dl>
 
 <div>
-    <h4>Veiculo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Placa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Placa)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnoFabricacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnoFabricacao)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnoModelo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnoModelo)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Relatorio" asp-route-id="@Model.Id">Ver relatório</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar para a lista</a>
 </div>

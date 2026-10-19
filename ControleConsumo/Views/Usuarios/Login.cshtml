@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Entrar";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-4">
+        <h1 class="mb-3">Entrar</h1>
+        <p class="text-muted">Informe seu usuário e senha para acessar o sistema.</p>
+
+        <form asp-action="Login" method="post">
+            <div class="form-group mb-2">
+                <label for="nome" class="control-label">Usuário</label>
+                <input id="nome" name="nome" class="form-control" required autofocus />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="senha" class="control-label">Senha</label>
+                <input id="senha" name="senha" type="password" class="form-control" required />
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger py-2">@ViewBag.Message</div>
+            }
+
+            <input type="submit" value="Acessar" class="btn btn-primary w-100" />
+        </form>
+    </div>
+</div>

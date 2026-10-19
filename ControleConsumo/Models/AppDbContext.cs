@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleConsumo.Models;
 
@@ -8,4 +8,5 @@ public class AppDbContext : DbContext
 
     public DbSet<Veiculo> Veiculos { get; set; }
     public DbSet<Consumo> Consumos { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
 }

@@ -1,50 +1,29 @@
 @model ControleConsumo.Models.Veiculo
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Excluir veículo";
 }
 
-<h1>Delete</h1>
+<h1>Excluir veículo</h1>
+<h4 class="text-danger">Tem certeza que deseja excluir este veículo?</h4>
+<p class="text-muted">Atenção: os consumos deste veículo também serão excluídos.</p>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Nome)</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ControleConsumo.Models.Veiculo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Placa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Placa)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnoFabricacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnoFabricacao)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnoModelo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnoModelo)
-        </dd>
-    </dl>
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Placa)</dt>
+    <dd class="col-sm-9">@Model.Placa</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.AnoFabricacao)</dt>
+    <dd class="col-sm-9">@Model.AnoFabricacao</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.AnoModelo)</dt>
+    <dd class="col-sm-9">@Model.AnoModelo</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Excluir" class="btn btn-danger" /> |
+    <a asp-action="Index">Voltar para a lista</a>
+</form>
